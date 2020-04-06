@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- web_template -->
+	<definition name="web_template" template="/WEB-INF/tiles/layouts/template.jsp">		
+		<put-attribute name="header" value="/WEB-INF/tiles/layouts/header.jsp" />
+		<put-attribute name="left" value="/WEB-INF/tiles/layouts/left.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/layouts/footer.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<definition name="*.web" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" />
+	</definition>
+	<definition name="/web/*.web" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/views/web/{1}.jsp" />
+	</definition>
+	<definition name="/web/*/*.web" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/views/web/{1}/{2}.jsp" />
+	</definition>
+	<!-- 
+	<definition name="/web/*/*/*.web" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/view/web/{1}/{2}/{3}.jsp" />
+	</definition>
+	<definition name="/web/*/*/*/*.web" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/view/web/{1}/{2}/{3}/{4}.jsp" />
+	</definition>
+	<definition name="/web/*/*/*/*/*.web" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/view/web/{1}/{2}/{3}/{4}/{5}.jsp" />
+	</definition>
+	 -->
+	 
+ 
+	<definition name="/bootstrap/*.boot" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/views/bootstrap/{1}.jsp" />
+	</definition>
+	<definition name="/bootstrap/*/*.boot" extends="web_template">
+		<put-attribute name="content" value="/WEB-INF/views/bootstrap/{1}/{2}.jsp" />
+	</definition>
+	
+
+	<!-- no-layouts -->
+	<!-- 
+	<definition name="default" template="/WEB-INF/layouts/web/default.jsp">
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<definition name="*.jsp" extends="default">
+		<put-attribute name="content" value="/WEB-INF/view/{1}.jsp" />
+	</definition>
+
+	<definition name="/web/*.jsp" extends="default">
+		<put-attribute name="content" value="/WEB-INF/view/web/{1}.jsp" />
+	</definition>
+	
+	<definition name="/web/*/*.jsp" extends="default">
+		<put-attribute name="content" value="/WEB-INF/view/web/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="/web/*/*/*.jsp" extends="default">
+		<put-attribute name="content" value="/WEB-INF/view/web/{1}/{2}/{3}.jsp" />
+	</definition>
+	 -->
+	 
+</tiles-definitions>
